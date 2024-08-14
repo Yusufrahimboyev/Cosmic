@@ -8,12 +8,30 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: DecoratedBox(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
+            fit: BoxFit.cover,
             image: AssetImage(AppImages.backImagesFirst),
           ),
         ),
-        child: SizedBox.expand(),
+        child: Scaffold(
+          backgroundColor: WidgetStateColor.transparent,
+          appBar: AppBar(
+            backgroundColor: const Color(0xff091522).withOpacity(0.4),
+            shadowColor: Colors.black,
+            elevation: 2,
+            shape: RoundedRectangleBorder(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(28),
+                bottomRight: Radius.circular(28),
+              ),
+              side: BorderSide(
+                width: 2,
+                color: Colors.black.withOpacity(0.3),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
