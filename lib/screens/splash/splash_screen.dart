@@ -1,5 +1,6 @@
 import 'package:cosmic_app/router/router_names.dart';
 import 'package:cosmic_app/style/app_images.dart';
+import 'package:cosmic_app/style/app_logo.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,10 +20,13 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
     _controller.forward();
-    Future.delayed(Duration(seconds: 4),() => Navigator.pushReplacementNamed(context, RouterNames.login),);
+    Future.delayed(
+      const Duration(seconds: 4),
+      () => Navigator.pushReplacementNamed(context, RouterNames.login),
+    );
   }
 
   @override
@@ -35,41 +39,37 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: DecoratedBox(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(AppImages.backImagesFirst),
+          ),
+        ),
         child: Stack(
           children: [
             Center(
-                child: AnimatedBuilder(
-                    animation: _controller,
-                    builder: (context, child) {
-                      return SizedBox(
-                        height: 330,
-                        width: 330,
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                          value: _controller.value,
-                          strokeWidth: 10,
-                        ),
-                      );
-                    })),
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                  child: Text(
-                    "cosmic",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 75,
-                        color: Colors.white),
-                  ),
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return SizedBox(
+                    height: 330,
+                    width: 330,
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                      value: _controller.value,
+                      strokeWidth: 10,
+                    ),
+                  );
+                },
+              ),
+            ),
+            const Center(
+              child: SizedBox(
+                width: 270,
+                child: Image(
+                  image: AssetImage(AppLogo.logo),
                 ),
-                Center(
-                  child: Text(
-                    "Free Mobile App UI Template",
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                )
-              ],
+              ),
             ),
             const Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -90,12 +90,6 @@ class _SplashScreenState extends State<SplashScreen>
               ],
             ),
           ],
-        ),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(AppImages.backImagesFirst),
-          ),
         ),
       ),
     );
