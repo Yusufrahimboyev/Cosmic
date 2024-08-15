@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Cosmic App",
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const SplashScreen(),
       routes: {
         RouterNames.home: (context) => const HomeScreen(),
         RouterNames.login: (context) => const LoginScreen(),

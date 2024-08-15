@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
     _controller.forward();
     Future.delayed(
-      const Duration(seconds: 4),
+      const Duration(seconds: 3),
       () => Navigator.pushReplacementNamed(context, RouterNames.login),
     );
   }

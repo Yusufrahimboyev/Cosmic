@@ -1,3 +1,4 @@
+import 'package:cosmic_app/router/router_names.dart';
 import 'package:cosmic_app/style/app_icons.dart';
 import 'package:cosmic_app/style/app_images.dart';
 import 'package:cosmic_app/style/app_logo.dart';
@@ -11,9 +12,17 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  void navigateToHome(){
+    setState(() {
+      Navigator.pushReplacementNamed(context, RouterNames.home);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -121,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: MaterialButton(
-                              onPressed: () {},
+                              onPressed: navigateToHome,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30)),
                               child: const Text(
