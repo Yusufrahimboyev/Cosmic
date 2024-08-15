@@ -1,6 +1,5 @@
 import 'package:cosmic_app/router/router_names.dart';
 import 'package:cosmic_app/screens/home/home_screen.dart';
-import 'package:cosmic_app/screens/inner/inner_screen.dart';
 import 'package:cosmic_app/screens/login/login_screen.dart';
 import 'package:cosmic_app/screens/profile/profile_screen.dart';
 import 'package:cosmic_app/screens/splash/splash_screen.dart';
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Cosmic App",
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const SplashScreen(),
       routes: {
         RouterNames.home: (context) => const HomeScreen(),
         RouterNames.login: (context) => const LoginScreen(),
