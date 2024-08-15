@@ -198,12 +198,20 @@ class FavoritesScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Positioned(
-                  top: 20,
-                  right: 25,
-                  child: Image(
-                    width: 25,
-                    image: AssetImage(AppIcons.like),
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: TextButton(
+                    style: const ButtonStyle(
+                      overlayColor: WidgetStateColor.transparent,
+                      padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                      shape: WidgetStatePropertyAll(CircleBorder()),
+                    ),
+                    onPressed: () {},
+                    child: const Image(
+                      width: 25,
+                      image: AssetImage(AppIcons.like),
+                    ),
                   ),
                 ),
               ],
