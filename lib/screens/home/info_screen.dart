@@ -26,6 +26,12 @@ class _InfoScreenState extends State<InfoScreen> {
     });
   }
 
+  void navigateToProfile(){
+    setState(() {
+      Navigator.pushNamed(context, RouterNames.profile);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
@@ -91,13 +97,17 @@ class _InfoScreenState extends State<InfoScreen> {
                     ],
                   ),
                 ),
-                const SizedBox.square(
-                  dimension: 55,
-                  child: MyCustomBox(
-                    child: Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Image(
-                        image: AssetImage(AppIcons.profile),
+                InkWell(
+                  onTap: navigateToProfile,
+                  overlayColor: WidgetStateColor.transparent,
+                  child: const SizedBox.square(
+                    dimension: 55,
+                    child: MyCustomBox(
+                      child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Image(
+                          image: AssetImage(AppIcons.profile),
+                        ),
                       ),
                     ),
                   ),

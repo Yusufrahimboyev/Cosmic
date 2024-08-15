@@ -16,6 +16,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool _cek1 = true;
   bool _cek2 = true;
 
+  void back(){
+    setState(() {
+      Navigator.maybePop(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double he = MediaQuery.of(context).size.height;
@@ -34,32 +40,76 @@ class _ProfileScreenState extends State<ProfileScreen> {
             physics: const NeverScrollableScrollPhysics(),
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
               SliverAppBar(
-                pinned: true,
-                leadingWidth: 80,
-                leading: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: MyBlurWidget(
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(AppIcons.arrowBack),
-                    ),
-                  ),
-                ),
-                backgroundColor: Colors.black.withOpacity(0.3),
-                title: const Text("My Profile"),
-                titleTextStyle: const TextStyle(color: Colors.white, fontSize: 32),
+                scrolledUnderElevation: 0,
                 centerTitle: true,
-                expandedHeight: 100,
+                pinned: true,
+                collapsedHeight: 128,
+                backgroundColor: const Color(0xff091522).withOpacity(0.4),
                 shape: RoundedRectangleBorder(
                   borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(60),
-                    bottomRight: Radius.circular(60),
-                    topRight: Radius.circular(50),
-                    topLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(28),
+                    bottomLeft: Radius.circular(28),
                   ),
                   side: BorderSide(
                     width: 2,
                     color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+                flexibleSpace: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 18,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: back,
+                        child: const SizedBox.square(
+                          dimension: 55,
+                          child: MyBlurWidget(
+                            child: Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Image(
+                                image: AssetImage(AppIcons.arrowBack),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Profile",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineSmall
+                                  ?.copyWith(
+                                color: const Color(0xffffffff),
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                          ],
+                        ),
+                      ),
+                      const Opacity(
+                        opacity: 0,
+                        child: SizedBox.square(
+                          dimension: 55,
+                          child: MyBlurWidget(
+                            child: Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Image(
+                                image: AssetImage(AppIcons.arrowBack),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -142,7 +192,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Stack(
                                 children: [
                                   SizedBox(
-                                    height: he * 0.4,
+                                    height: he * 0.36,
                                     width: we * 0.8,
                                     child: const CircularProgressIndicator(
                                       value: 0.8,
@@ -156,7 +206,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Column(
                                     children: [
-                                      const SizedBox(height: 40,),
+                                      const SizedBox(height: 35,),
                                       Padding(
                                         padding: EdgeInsets.symmetric(
 
@@ -166,7 +216,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           "Personal Progress",
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 30,
+                                              fontSize: 25,
                                               fontWeight: FontWeight.bold),
                                           maxLines: 2,
                                         ),
@@ -179,7 +229,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: Color(0xff859AF4),
-                                              fontSize: 96),
+                                              fontSize: 80),
                                         ),
                                       ),
                                     ],
