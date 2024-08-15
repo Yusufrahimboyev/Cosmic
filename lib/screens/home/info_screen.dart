@@ -1,3 +1,4 @@
+import 'package:cosmic_app/router/router_names.dart';
 import 'package:cosmic_app/screens/home/widgets/my_custom_box.dart';
 import 'package:cosmic_app/screens/home/widgets/my_gradient.dart';
 import 'package:cosmic_app/style/app_icons.dart';
@@ -18,6 +19,13 @@ class _InfoScreenState extends State<InfoScreen> {
     "earth": AppImages.earth,
     "mars": AppImages.mars,
   };
+
+  void navigateToMars(){
+    setState(() {
+      Navigator.pushNamed(context, RouterNames.inner);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
@@ -229,7 +237,7 @@ class _InfoScreenState extends State<InfoScreen> {
                                       WidgetStateColor.transparent,
                                       padding: WidgetStatePropertyAll(
                                           EdgeInsets.zero)),
-                                  onPressed: () {},
+                                  onPressed: navigateToMars,
                                   child: Row(
                                     children: [
                                       Text(

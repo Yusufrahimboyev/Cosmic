@@ -1,12 +1,18 @@
+import 'package:cosmic_app/router/router_names.dart';
 import 'package:cosmic_app/screens/home/widgets/my_custom_box.dart';
 import 'package:cosmic_app/screens/home/widgets/my_gradient.dart';
 import 'package:cosmic_app/style/app_icons.dart';
 import 'package:cosmic_app/style/app_images.dart';
 import 'package:flutter/material.dart';
 
-class FavoritesScreen extends StatelessWidget {
-  FavoritesScreen({super.key});
+class FavoritesScreen extends StatefulWidget {
+  const FavoritesScreen({super.key});
 
+  @override
+  State<FavoritesScreen> createState() => _FavoritesScreenState();
+}
+
+class _FavoritesScreenState extends State<FavoritesScreen> {
   final List<Map<String, String>> planets = [
     {
       "name": "Mercury",
@@ -33,6 +39,12 @@ class FavoritesScreen extends StatelessWidget {
           "Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System."
     },
   ];
+
+  void navigateToMars(){
+    setState(() {
+      Navigator.pushNamed(context, RouterNames.inner);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +180,7 @@ class FavoritesScreen extends StatelessWidget {
                                     padding:
                                         WidgetStatePropertyAll(EdgeInsets.zero),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: navigateToMars,
                                   child: Row(
                                     children: [
                                       Text(

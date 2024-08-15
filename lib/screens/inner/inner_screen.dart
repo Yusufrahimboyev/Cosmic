@@ -13,6 +13,13 @@ class InnerScreen extends StatefulWidget {
 }
 
 class _InnerScreenState extends State<InnerScreen> {
+
+  void back(){
+    setState(() {
+      Navigator.maybePop(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -54,7 +61,7 @@ class _InnerScreenState extends State<InnerScreen> {
                     const SizedBox(width: 20),
                     CustomBox(
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: back,
                         icon: const ImageIcon(
                           AssetImage(AppIcons.arrowBack),
                           size: 27,
