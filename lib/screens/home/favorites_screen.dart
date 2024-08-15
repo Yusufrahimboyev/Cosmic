@@ -46,6 +46,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
     });
   }
 
+  void navigateToProfile(){
+    setState(() {
+      Navigator.pushNamed(context, RouterNames.profile);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return NestedScrollView(
@@ -102,13 +108,17 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     ],
                   ),
                 ),
-                const SizedBox.square(
-                  dimension: 55,
-                  child: MyCustomBox(
-                    child: Padding(
-                      padding: EdgeInsets.all(12),
-                      child: Image(
-                        image: AssetImage(AppIcons.profile),
+                InkWell(
+                  onTap: navigateToProfile,
+                  overlayColor: WidgetStateColor.transparent,
+                  child: const SizedBox.square(
+                    dimension: 55,
+                    child: MyCustomBox(
+                      child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Image(
+                          image: AssetImage(AppIcons.profile),
+                        ),
                       ),
                     ),
                   ),
@@ -120,7 +130,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       ],
       body: ListView.separated(
         itemBuilder: (BuildContext context, int index) =>
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
         separatorBuilder: (BuildContext context, int index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: MyCustomBox(
