@@ -112,84 +112,101 @@ class FavoritesScreen extends StatelessWidget {
         separatorBuilder: (BuildContext context, int index) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: MyCustomBox(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Stack(
-                      children: [
-                        Image(
-                          width: 70,
-                          image: AssetImage(planets.elementAt(index)["image"]!),
+            child: Stack(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Stack(
+                          children: [
+                            Image(
+                              width: 70,
+                              image: AssetImage(
+                                  planets.elementAt(index)["image"]!),
+                            ),
+                            const MyGradient(
+                              dimension: 70,
+                            )
+                          ],
                         ),
-                        const MyGradient(
-                          dimension: 70,
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          planets.elementAt(index)["name"]!,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge
-                              ?.copyWith(
-                                  color: const Color(0xff11dce8),
-                                  fontWeight: FontWeight.w700),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          planets.elementAt(index)["text"]!,
-                          style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              planets.elementAt(index)["name"]!,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(
+                                      color: const Color(0xff11dce8),
+                                      fontWeight: FontWeight.w700),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              planets.elementAt(index)["text"]!,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall
+                                  ?.copyWith(
                                     color: Colors.white,
                                   ),
-                        ),
-                        Row(
-                          children: [
-                            const SizedBox(width: 130),
-                            TextButton(
-                              style: const ButtonStyle(
-                                overlayColor: WidgetStateColor.transparent,
-                                padding:
-                                    WidgetStatePropertyAll(EdgeInsets.zero),
-                              ),
-                              onPressed: () {},
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "Details",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall
-                                        ?.copyWith(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w700,
-                                        ),
+                            ),
+                            Row(
+                              children: [
+                                const SizedBox(width: 130),
+                                TextButton(
+                                  style: const ButtonStyle(
+                                    overlayColor: WidgetStateColor.transparent,
+                                    padding:
+                                        WidgetStatePropertyAll(EdgeInsets.zero),
                                   ),
-                                  const SizedBox(width: 10),
-                                  const Image(
-                                    width: 25,
-                                    image: AssetImage(AppIcons.arrowForward),
+                                  onPressed: () {},
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Details",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall
+                                            ?.copyWith(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700,
+                                            ),
+                                      ),
+                                      const SizedBox(width: 10),
+                                      const Image(
+                                        width: 25,
+                                        image:
+                                            AssetImage(AppIcons.arrowForward),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                const Positioned(
+                  top: 20,
+                  right: 25,
+                  child: Image(
+                    width: 25,
+                    image: AssetImage(AppIcons.like),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
